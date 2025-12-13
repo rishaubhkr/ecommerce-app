@@ -1,6 +1,5 @@
 {
   "installCommand": "npm install",
   "buildCommand": "npm install --prefix backend && npm install --prefix admin && npm run build --prefix admin",
-  "startCommand": "npm run start --prefix backend",
   "outputDirectory": "admin/dist"
 }
