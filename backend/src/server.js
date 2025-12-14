@@ -1,8 +1,13 @@
 import express from "express";
 import path from "path";
 import { ENV } from './config/env.js'
+import { connectDB } from "./config/db.js";
+
+import { clerkMiddleware } from '@clerk/express'
 
 const app = express();
+
+app.use(clerkMiddleware( ))
 
 const __dirname = path.resolve() 
 
@@ -20,4 +25,7 @@ if(ENV.NODE_ENV  === 'production'){
     })
 }
 
-app.listen(ENV.PORT, () => console.log("server up"));
+app.listen(ENV.PORT, () => {
+    console.log("server up")
+    connectDB()
+});
